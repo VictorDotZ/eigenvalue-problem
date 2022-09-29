@@ -80,11 +80,8 @@ double eigenVectorInaccuracy(std::vector<double> vec, const double lambda, const
 
 	double vecNorm = euclideanNorm(vec);
 
-	for (auto& elem : vec)
-		elem *= lambda;
-
 	for (size_t i = 0; i < matrixToVec.size(); ++i)
-		matrixToVec[i] -= vec[i];
+		matrixToVec[i] -= vec[i] * lambda;
 
 	if ((std::abs(lambda) >= std::numeric_limits<double>::epsilon()))
 		vecNorm *= std::abs(lambda);
